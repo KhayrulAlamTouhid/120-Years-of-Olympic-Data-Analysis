@@ -41,3 +41,45 @@ Power BI was utilized to create interactive and insightful visualizations of the
 ![Project Report](Data%20Visualization.JPG)
 
 ## How have i made this project
+### 1. Data Extraction:
+Technology Used: Python   
+Source: Kaggle Olympic Dataset
+#### Process:
+Utilized Python to access the Kaggle API and download the dataset, which includes historical data on Olympic Games spanning 120 years. I wrote a simple python script for downlad this data. 
+### 2. Data Transformation:
+Technology Used: Apache Spark with Scala   
+Environment: Apache Spark (Scala)
+#### Process:
+Loaded the extracted data into Apache Spark for scalable processing.
+Performed various data transformation tasks such as data cleaning, normalization, and enrichment. 
+This included handling missing values, converting data types, and aggregating data to prepare it for analysis.
+Used Spark DataFrames and Spark SQL to execute complex transformations efficiently on large datasets. after transformation i save it into aws s3.
+### 4. Data Loading:
+Technology Used: Python and AWS RDS   
+Target Database: AWS RDS Mysql (Relational Database Service)
+#### Process:
+Used Python to interact with AWS RDS for loading the processed data into a relational database for further querying and analysis. i wrote two python script file for load the data into aws rds. That scripts created a database and made a Mysql table into aws rds and also load this data from aws s3. and another script file made a database and create a mysql table into aws rds and also load some specific data.
+### 5. Analysis and Insights:
+Technology Used: Power Bi  
+Connect to the AWS RDS database to create interactive dashboards and reports.
+Use Power BI to visualize trends, patterns, and key performance indicators related to Olympic data.
+### 6. Other Tools:
+* **Intelij IDE:** I have used intelij ide for write project script.
+* **Databricks:** I have also used Databricks for made this project, Databricks used is easy than intelij cause Intelij IDE we have to install some libraries, scala, java, python, hadoop and some dependencies but if i use Databricks i don't have to install that much libraries, programming languages and tools.
+* **Helps:** when i faced some issue and error, i took help from google and ChatGpt, They helped for writing scripts and making this project.
+### Problem Description
+#### 1. Background
+In the "120 Years of Olympic Data Analysis" project, I have successfully extracted and transformed Olympic data and stored it in Amazon S3. The next step involves loading this data into AWS RDS for analysis. However, I'm encountering an issue related to NaN values in the data.
+
+#### 2. Problem Statement
+When attempting to load the transformed data into AWS RDS, the process fails due to the presence of NaN values in the dataset. This issue is causing the data import to either fail entirely or result in incorrect entries in the database.
+
+#### 3. Error Messages
+**Error Message:** ***"Error: Column contains NaN values which cannot be inserted into the database."***
+#### 4. Steps Taken
+Detail the steps I’ve already taken to resolve the issue.
+ * When i faced this issue i check my aws credentials and mysql port
+ * After that i use try catch functions than i saw that My database and table are successfully created but the problem when i wanna load.
+ * Than I go to my spark dataframe and i checkd mydatasheet has 'nan' values, i can see my datasheet 6 field are nan values, than i fix it using scala spark  and i again save this datasheet into aws s3, That's way i fixed my issue. if you wanna see how can i fix it you can go to my github Transform Data folder.
+### Summary:
+This project involves a robust ETL pipeline to handle a large-scale dataset efficiently. By leveraging Python for extraction and loading, Scala with Apache Spark for transformation, and AWS S3 and RDS for storage, the project aims to create a comprehensive and accessible dataset for detailed Olympic data analysis. The end goal is to provide actionable insights and support further research or reporting on Olympic history and trends. It was my first project in my life, Sometimes i faced some issue but i have used google and chatgpt for solve this problem. This journey was so impressive. i liked this journey. Thank you Everybody.
